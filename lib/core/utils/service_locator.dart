@@ -14,5 +14,7 @@ void setup() async {
       Homerepoimplmantion(getit.get<Apiservices>()));
   await Hive.initFlutter();
   Hive.registerAdapter(BookEntitesAdapter());
-  await Hive.openBox(kayadapter);
+  await Hive.openBox(kayfeatchdat);
+  await Hive.openBox(kayrelativedata);
+  await Hive.openBox(kaysearchdata);
 }

@@ -17,6 +17,6 @@ final class FeatchFailureState extends HomeState {
 }
 
 final class FeatchSuccesState extends HomeState {
-  final List<BookModle> books;
+  final List<BookEntites> books;
   const FeatchSuccesState(this.books);
 }

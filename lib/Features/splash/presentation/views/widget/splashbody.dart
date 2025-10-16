@@ -1,7 +1,7 @@
 import 'package:booklyapp/Features/splash/presentation/views/widget/slidingtext.dart';
 
 import 'package:booklyapp/core/utils/assets.dart';
-import 'package:booklyapp/functions/functions.dart';
+import 'package:booklyapp/core/functions/functions.dart';
 import 'package:flutter/material.dart';
 
 class Splashbody extends StatefulWidget {

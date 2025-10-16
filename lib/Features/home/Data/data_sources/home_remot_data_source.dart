@@ -1,5 +1,5 @@
-import 'package:booklyapp/Features/home/Data/models/book_model/book_modle.dart';
 import 'package:booklyapp/Features/home/Domain/entites/entites.dart';
+import 'package:booklyapp/core/functions/functions.dart';
 import 'package:booklyapp/core/utils/api_services.dart';
 
 abstract class Homeremotdatasource {
@@ -32,13 +32,5 @@ class ImplamentHomeremotdata extends Homeremotdatasource {
         .get('volumes?q=$bookName|"title"=$bookName&filtering=free-ebooks');
     List<BookEntites> books = parsingdata(respons as Map<String, dynamic>);
     return Future.value(books);
-  }
-
-  List<BookEntites> parsingdata(Map<String, dynamic> respons) {
-    List<BookEntites> books = [];
-    for (var item in respons['items']) {
-      books.add(BookModle.fromJson(item));
-    }
-    return books;
   }
 }

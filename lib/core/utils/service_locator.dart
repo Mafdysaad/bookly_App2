@@ -14,5 +14,5 @@ void setup() async {
       Homerepoimplmantion(getit.get<Apiservices>()));
 
   Hive.registerAdapter(BookEntitesAdapter());
-  await Hive.openBox(Constdata.kayadapter);
+  await Hive.openBox(kayadapter);
 }

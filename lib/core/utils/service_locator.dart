@@ -12,7 +12,7 @@ void setup() async {
   getit.registerSingleton<Apiservices>(Apiservices(Dio()));
   getit.registerSingleton<Homerepoimplmantion>(
       Homerepoimplmantion(getit.get<Apiservices>()));
-
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntitesAdapter());
   await Hive.openBox(kayadapter);
 }

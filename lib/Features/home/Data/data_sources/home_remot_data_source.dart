@@ -1,4 +1,5 @@
 import 'package:booklyapp/Features/home/Domain/entites/entites.dart';
+import 'package:booklyapp/constants/constdata.dart';
 import 'package:booklyapp/core/functions/functions.dart';
 import 'package:booklyapp/core/utils/api_services.dart';
 
@@ -15,6 +16,7 @@ class ImplamentHomeremotdata extends Homeremotdatasource {
   Future<List<BookEntites>> featchBooks() async {
     var respons = await apiservices.get('volumes?q=programming');
     List<BookEntites> books = parsingdata(respons);
+    savecacheData(books, kayfeatchdat);
     return books;
   }
 
@@ -23,6 +25,7 @@ class ImplamentHomeremotdata extends Homeremotdatasource {
     var respons = apiservices
         .get('volumes?q=$categories&filtering=free-ebooks&Sorting=relevance');
     List<BookEntites> books = parsingdata(respons as Map<String, dynamic>);
+    savecacheData(books, kayrelativedata);
     return Future.value(books);
   }
 
@@ -31,6 +34,7 @@ class ImplamentHomeremotdata extends Homeremotdatasource {
     var respons = apiservices
         .get('volumes?q=$bookName|"title"=$bookName&filtering=free-ebooks');
     List<BookEntites> books = parsingdata(respons as Map<String, dynamic>);
+    savecacheData(books, kaysearchdata);
     return Future.value(books);
   }
 }

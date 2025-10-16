@@ -1,5 +1,7 @@
 import 'package:booklyapp/Features/home/Data/models/book_model/book_modle.dart';
 import 'package:booklyapp/Features/home/Domain/entites/entites.dart';
+import 'package:booklyapp/constants/constdata.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 abstract class Localdatatsource {
   List<BookEntites> featchBooks();
@@ -10,27 +12,19 @@ abstract class Localdatatsource {
 class ImplamentLocalHomeData extends Localdatatsource {
   @override
   List<BookEntites> featchBooks() {
-    // TODO: implement featchBooks
-    throw UnimplementedError();
+    var box = Hive.box<BookEntites>(kayfeatchdat);
+    return box.values.toList();
   }
 
   @override
   List<BookEntites> relatedBook({required String categories}) {
-    // TODO: implement relatedBook
-    throw UnimplementedError();
+    Box<BookEntites> box = Hive.box<BookEntites>(kayrelativedata);
+    return box.values.toList();
   }
 
   @override
   List<BookEntites> searchBook({required String bookName}) {
-    // TODO: implement searchBook
-    throw UnimplementedError();
-  }
-
-  List<BookEntites> parsingdata(Map<String, dynamic> respons) {
-    List<BookEntites> books = [];
-    for (var item in respons['items']) {
-      books.add(BookModle.fromJson(item));
-    }
-    return books;
+    Box<BookEntites> box = Hive.box(kaysearchdata);
+    return box.values.toList();
   }
 }

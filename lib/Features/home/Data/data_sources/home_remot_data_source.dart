@@ -8,9 +8,9 @@ abstract class Homeremotdatasource {
   Future<List<BookEntites>> relatedBook({required String categories});
 }
 
-class implamentHomeremotdata extends Homeremotdatasource {
+class ImplamentHomeremotdata extends Homeremotdatasource {
   final Apiservices apiservices;
-  implamentHomeremotdata(this.apiservices);
+  ImplamentHomeremotdata(this.apiservices);
   @override
   Future<List<BookEntites>> featchBooks() async {
     var respons = await apiservices.get('volumes?q=programming');
